@@ -16,6 +16,7 @@ List will show files and folders in a user friendly way with many options to cus
 
 ## Development
 
-**Java 11** is used to develop this application. List works on Java 11 and it does not depend on any libraries so it will be simple and faster.
+* Java 11
+* ANSI escape codes for coloring
 
-**This application is good for new learners and new contributors**
+List works on Java 11 and it does not depend on any libraries so it will be simple and faster. **This application is good for new learners and new contributors**
