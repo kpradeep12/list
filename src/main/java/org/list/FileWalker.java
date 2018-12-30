@@ -14,6 +14,6 @@ public class FileWalker {
         Files.walkFileTree(path,
                 options,
                 Integer.MAX_VALUE,
-                new TreeFileVisitor());
+                new TreeFileVisitor(path));
     }
 }

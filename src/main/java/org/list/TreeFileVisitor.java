@@ -8,9 +8,22 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 public class TreeFileVisitor extends SimpleFileVisitor<Path> {
     private int folderLevel = 0;
+    private String space = " ";
+    private Path initialPath;
+    TreeFileVisitor(Path initialPath){
+        this.initialPath = initialPath;
+    }
     @Override
     public FileVisitResult preVisitDirectory(Path path, BasicFileAttributes attrs) throws IOException {
-        folderLevel++;
+        if(initialPath.equals(path)){
+            System.out.format(".%n");
+        }else {
+            System.out.format("%s%s %s %n",
+                    space.repeat(folderLevel),
+                    "\u251c\u2500",
+                    path.getFileName());
+            folderLevel++;
+        }
         return FileVisitResult.CONTINUE;
     }
     @Override
@@ -20,7 +33,10 @@ public class TreeFileVisitor extends SimpleFileVisitor<Path> {
     }
     @Override
     public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) throws IOException{
-        System.out.format("%s %s %n","\u251c\u2500", path.getFileName());
+        System.out.format("%s%s %s %n",
+                space.repeat(folderLevel > 0 ? folderLevel+1: folderLevel),
+                "\u251c\u2500",
+                path.getFileName());
         return FileVisitResult.CONTINUE;
     }
 
