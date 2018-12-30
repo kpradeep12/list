@@ -7,7 +7,7 @@ import java.nio.file.Path;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        Path path = FileSystems.getDefault().getPath("/Users/pradeep/code/algorithms/src/main/java/org/algo");
+        Path path = FileSystems.getDefault().getPath(args[0]);
         FileWalker.list(path);
     }
 }
