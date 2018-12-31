@@ -4,7 +4,7 @@ List is a command line application to list files and folders in the file system.
 ### Screenshot
 ![List Screenshot](http://thetechstack.net/assets/images/list-folder-screenshot.jpg)
 
-**mvn** command is for testing application in local computer. After the build **list** is used to run application.
+NOTE: **mvn** command is used for testing application in local computer.
 
 List will show files and folders in a user friendly way with many options to customize the output. Below are some of the output formats it will generate:
 * Tree (default)
