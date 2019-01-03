@@ -13,20 +13,38 @@ public class Console {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    public static void printFolder(Path path, String space, int folderLevel){
-        System.out.format("%s%s %s%s%s %n",
+    public static void printFolder(Path path, String space, int folderLevel, int folderFileCount){
+        //System.out.printf("%s %d:",path.getFileName(), folderFileCount);
+        if(folderFileCount <= 0){
+            System.out.format("%s%s%s%s %s %n",
+                    ANSI_YELLOW,
+                    space.repeat(folderLevel),
+                    "\u2514\u2500\u2500",
+                    ANSI_RESET,
+                    path.getFileName());
+        }else
+            System.out.format("%s%s%s%s %s %n",
+                ANSI_YELLOW,
                 space.repeat(folderLevel),
                 "\u251c\u2500\u2500",
-                ANSI_RED,
-                path.getFileName(),
-                ANSI_RESET);
-
+                ANSI_RESET,
+                path.getFileName());
     }
 
-    public static void printFile(Path path, String space, int folderLevel){
-        System.out.format("%s%s %s %n",
+    public static void printFile(Path path, String space, int folderLevel, int folderFileCount){
+        if(folderFileCount <= 0){
+            System.out.format("%s%s%s%s %s %n",
+                    ANSI_YELLOW,
+                    space.repeat(folderLevel),
+                    "\u2514\u2500\u2500",
+                    ANSI_RESET,
+                    path.getFileName());
+        }else
+        System.out.format("%s%s%s%s %s %n",
+                ANSI_YELLOW,
                 space.repeat(folderLevel),
                 "\u251c\u2500\u2500",
+                ANSI_RESET,
                 path.getFileName());
     }
 }
